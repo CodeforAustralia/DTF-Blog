@@ -18,14 +18,14 @@ avatar: https://codeforaustralia.github.io/DTF-Blog/images/CFA_FLogo.png
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email:
+  email: 2016-dtf-fellowship@codeforaustralia.org
   facebook:
   flickr:
   github: CodeforAustralia/DTF-Blog
   instagram:
   linkedin:
   pinterest:
-  rss: # just type anything here for a working RSS icon
+  rss: rss # just type anything here for a working RSS icon
   twitter: CodeforAus
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
