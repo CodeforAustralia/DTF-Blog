@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-08-10T19:36:31+10:00</updated><id>/</id><title>2016 DTF Fellowship Team</title><subtitle>A small band of dedicated civic hackers making a difference to the way government works</subtitle><entry><title>Our fellowship begins with CfA</title><link href="/Ben-First-week/" rel="alternate" type="text/html" title="Our fellowship begins with CfA" /><published>2016-08-08T00:00:00+10:00</published><updated>2016-08-08T00:00:00+10:00</updated><id>/Ben-First-week</id><content type="html" xml:base="/Ben-First-week/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-08-29T09:26:20+10:00</updated><id>/</id><title>2016 DTF Fellowship Team</title><subtitle>A small band of dedicated civic hackers making a difference to the way government works</subtitle><entry><title>Our fellowship begins with DTF</title><link href="/Ben-DTF-Start/" rel="alternate" type="text/html" title="Our fellowship begins with DTF" /><published>2016-08-26T00:00:00+10:00</published><updated>2016-08-26T00:00:00+10:00</updated><id>/Ben-DTF-Start</id><content type="html" xml:base="/Ben-DTF-Start/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
+
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF-Disc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+![](/DTF-Blog/images/DTF_Flags_1.jpg)
+![](/DTF-Blog/images/DTF_Flags_2.jpg)
+![](/DTF-Blog/images/DTF_Garden_1.jpg)
+--&gt;
+
+&lt;h3 id=&quot;security-security-and-more-security&quot;&gt;Security, security and more security&lt;/h3&gt;
+
+&lt;p&gt;It is actually a bit heartening that security at the Department of Treasury and Finance is so tight, but as someone who just wants to get rapid traction on a short project it was rather frustrating how much of a blocker this was for our first week. In particular the lack of printing facilities was driving us crazy but things are improving and we even have limited access to the database they want us to work on. Only time will tell how difficult accessing other datastores and sources of contracting info is going to be&lt;/p&gt;
+
+&lt;p&gt;I’m also in uncharted territory as the instructions provided so far have only given instructions for Mac or Windows… no mention of Linux! So far so good and it does seem like it’s going to be possible, but it will introduce an unwanted level of uncertainty to the situation&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;At least they’ve let us in and granted us access:&lt;/em&gt;
+&lt;img src=&quot;/DTF-Blog/images/DTF_office_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;purchasing-procurement-and-paying-for-stuff&quot;&gt;Purchasing, procurement and paying for stuff&lt;/h3&gt;
+
+&lt;p&gt;All three of our team has ramped up our understanding of the procurement process and related processes used at the DTF. It has been a great boon that all three of us come at the problem form different angles and have been able to assist each others learning and help clarify the groups understanding of the domain and the scope of the project&lt;/p&gt;
+
+&lt;h3 id=&quot;agile-the-slow-way&quot;&gt;Agile the slow way&lt;/h3&gt;
+
+&lt;p&gt;Due to the structure of the workplace at the DTF and the stage of the project we are in it has been challenging to function as an Agile team and self direct our days agenda. The workplace has a low volume tolerance and so things like standups have to be taken into a meeting room, with the result that they can turn into drawn out meetings.&lt;/p&gt;
+
+&lt;p&gt;At the moment there are also key knowledge and influence holders we are having to meet with who we will have limited access to as the project progresses (yay) and this has also made any daily routines and rituals rather unstable. However we are starting to settle into a couple of rituals at regular times and I can see things getting better as we beginning being able to reach-out to people independently and set our own timetables&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Level 1: Chaos:&lt;/em&gt;
+&lt;img src=&quot;/DTF-Blog/images/DTF_Ideas_1.jpg&quot; alt=&quot;&quot; title=&quot;Level 1: Chaos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Level 2: Disorganized:&lt;/em&gt;
+&lt;img src=&quot;/DTF-Blog/images/DTF_Ideas_2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Level 3: Inspirational ideas for motivating better feedback:&lt;/em&gt;
+&lt;img src=&quot;/DTF-Blog/images/DTF_Ideas_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;prototypes-and-place-holders&quot;&gt;Prototypes and place-holders&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Naively prototyping the current form as is:&lt;/em&gt;
+&lt;img src=&quot;/DTF-Blog/images/DTF_BigForm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This week in addition to continuing our research into reporting practices and requirements we have begun prototyping some possible forms for our solution. Below are a selection of our ideas and prototypes we have been considering&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Paper prototypes of possible form ideas:&lt;/em&gt;
+&lt;img src=&quot;/DTF-Blog/images/DTF_Protos_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary></summary></entry><entry><title>Our fellowship begins with CfA</title><link href="/Ben-First-week/" rel="alternate" type="text/html" title="Our fellowship begins with CfA" /><published>2016-08-08T00:00:00+10:00</published><updated>2016-08-08T00:00:00+10:00</updated><id>/Ben-First-week</id><content type="html" xml:base="/Ben-First-week/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://codeforaustralia.github.io/DTF-Blog/images/CFA_day_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
