@@ -4,7 +4,7 @@ title: Our fellowship begins with CfA
 ---
 
 <!-- https://codeforaustralia.github.io/DTF-Blog/ -->
-
+_08/08/2016_
 ![](https://codeforaustralia.github.io/DTF-Blog/images/CFA_day_1.jpg)
 
 ### Day 1
