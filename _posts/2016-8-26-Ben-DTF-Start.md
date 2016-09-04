@@ -5,6 +5,7 @@ title: Our fellowship begins with DTF
 
 <!-- https://codeforaustralia.github.io/DTF-Blog/ -->
 _26/08/2016_
+
 ![]({{ site.baseurl }}/images/DTF-Disc.jpg)
 
 <!--

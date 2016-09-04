@@ -4,12 +4,23 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+We are the 2016 Code for Australia Fellowship team assigned to work with the Department of Treasury and Finance in Victoria. We are a small team of developers, designers and community builders intent on making a difference in the way the government works.
 
-### More Information
+### What we do
 
-A place to include any other types of information that you'd like to include about yourself.
+* We build purposeful digital products and programs
+* We build digital products by, and with users
+* We operate in public - everything we do, when we can, is open and transparent
+* We embrace failure
+* We aim to create a space that is diverse, collaborative and integrated with the world
+* We recognise our goals through regular feedback
 
-### Contact me
+### Contact us
 
-[email@domain.com](mailto:email@domain.com)
+[Ken](mailto:ken@codeforaustralia.org)
+
+[Elmer](mailto:elmer@codeforaustralia.org)
+
+[Ben](mailto:benjamin@codeforaustralia.org)
+
+[DTF Project](mailto:2016-dtf-fellowship@codeforaustralia.org)

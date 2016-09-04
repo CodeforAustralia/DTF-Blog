@@ -1,6 +1,156 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/" rel="alternate" type="text/html" /><updated>2016-09-02T19:46:53+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/</id><title>2016 DTF Fellowship Team</title><subtitle>A small band of dedicated civic hackers making a difference to the way government works</subtitle><entry><title>Our fellowship begins with DTF</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Start/" rel="alternate" type="text/html" title="Our fellowship begins with DTF" /><published>2016-08-26T00:00:00+10:00</published><updated>2016-08-26T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Start</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Start/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
-&lt;p&gt;&lt;em&gt;26/08/2016&lt;/em&gt;
-&lt;img src=&quot;/DTF-Blog/images/DTF-Disc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/" rel="alternate" type="text/html" /><updated>2016-09-04T17:44:56+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/</id><title>2016 DTF Fellowship Team</title><subtitle>A small band of dedicated civic hackers making a difference to the way government works</subtitle><entry><title>Prototyping at DTF</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes/" rel="alternate" type="text/html" title="Prototyping at DTF" /><published>2016-09-04T00:00:00+10:00</published><updated>2016-09-04T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
+&lt;p&gt;&lt;em&gt;04/09/2016&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Australian, Aborigional, Torres Straits and Victorian flags fly at the DTFs front door&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF_Flags_2.jpg&quot; alt=&quot;&quot; height=&quot;400px&quot; width=&quot;400px&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+![](/DTF-Blog/images/DTF_Flags_1.jpg)
+![](/DTF-Blog/images/DTF_Garden_1.jpg)
+--&gt;
+
+&lt;h3 id=&quot;prototypes-prototypes-and-more-prototypes&quot;&gt;Prototypes, prototypes and more prototypes&lt;/h3&gt;
+
+&lt;p&gt;This week at the Department we’ve been developing some ideas about how to improve the quality and frequency of reporting by other government departments. While we are still yet to gain access to any actual users of our systems we have begun creating prototypes of potential solutions and showing them to mock-users and members of the general public. Below we will detail some of the surviving designs and discuss some of there pros and cons. You can click on the image icons to see the enlarged images&lt;/p&gt;
+
+&lt;h4 id=&quot;autofill-prototype&quot;&gt;#01 - Autofill prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_01 - autofill.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_01 - autofill.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Stakeholder comment: “Isn’t this what you’re doing?”
+While this is a fairly common form technique and one we are assuming we will use, we still wanted to put it infront of our users and get feedback on exceptions to the rule or any little caveats they may think might apply to this form
+In particular we were warned to be carefull with geographic boundries of municipalities and post-codes
+There are also cases where we want to encourage thinking and observing over just getting it done quick. In some of these cases we may want to consider not autofilling some fields even if we can&lt;/p&gt;
+
+&lt;h4 id=&quot;lastfill-prototype&quot;&gt;#02 - Lastfill prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_02 - last response.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_02 - last response.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Although the prototype was rejected as it might ecourage less thinking about responses, there were some insights gleaned in any case. Firstly was a feature we’d not considered, an audit trail. Additionally there may be some cases where highlighting (or red flagging) variations or changes to the status of a project&lt;/p&gt;
+
+&lt;h4 id=&quot;saved-fields-prototype&quot;&gt;#03 - Saved fields prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_03 - saved fields.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_03 - saved fields.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Might be handy for some fields, but is also likely to promote no-thinking submissions&lt;/p&gt;
+
+&lt;h4 id=&quot;fast-feedback-prototype&quot;&gt;#04 - Fast feedback prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_04 - feedback.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_04 - feedback.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;saved-progress-prototype&quot;&gt;#05 - Saved progress prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_05 - saving.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_05 - saving.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;multidementional-input-prototype&quot;&gt;#06 - Multidementional input prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_06 - multidimentional.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_06 - multidimentional.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;examples-included-prototype&quot;&gt;#07 - Examples included prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_07 - examples.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_07 - examples.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;workflow-managment-prototype&quot;&gt;#08 - Workflow managment prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_08 - workflow.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_08 - workflow.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;importing-data-prototype&quot;&gt;#09 - Importing data prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_09 - import.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_09 - import.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;segmented-prototype&quot;&gt;#10 - Segmented prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_10 - segmented.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_10 - segmented.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;educational-prototype&quot;&gt;#11 - Educational prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_11 - education.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_11 - education.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;freeform-reporting-prototype&quot;&gt;#12 - Freeform reporting prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_12 - freeform.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_12 - freeform.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;spreadsheet-prototype&quot;&gt;#13 - Spreadsheet prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_13 - spreadsheet.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_13 - spreadsheet.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;journey-mapping-prototype&quot;&gt;#14 - Journey mapping prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_14 - journey.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_14 - journey.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;delegation-prototype&quot;&gt;#15 - Delegation prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_15 - delegation.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_15 - delegation.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;reminers-and-allerts-prototype&quot;&gt;#16 - Reminers and allerts prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_16 - reminders.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_16 - reminders.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;indirect-scoring-prototype&quot;&gt;#17 - Indirect scoring prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_17 - indirect.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_17 - indirect.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;analytics-prototype&quot;&gt;#18 - Analytics prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_18 - analytics.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_18 - analytics.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;input-flavours-prototype&quot;&gt;#19 - Input flavours prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_19 - flavours.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_19 - flavours.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;gamification-prototype&quot;&gt;#20 - Gamification prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_20 - gamification.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_20 - gamification.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h4 id=&quot;data-independance-prototype&quot;&gt;#21 - Data independance prototype&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/DTF-Blog/images/protos/DTF_Proto_21 - independance.jpg&quot;&gt;&lt;img src=&quot;/DTF-Blog/images/protos/DTF_Proto_21 - independance.jpg&quot; alt=&quot;&quot; height=&quot;80px&quot; width=&quot;80px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Autofill disussion&lt;/p&gt;
+
+&lt;h3 id=&quot;thats-all-for-now&quot;&gt;Thats all for now&lt;/h3&gt;
+
+&lt;p&gt;Well that the roundup of our current prototypes, hopefully we’ll have a few digitized versions for you to click on soon enough&lt;/p&gt;
+
+&lt;p&gt;In the mean time feel free to send any comments, concerns, complaints or anything else beginning with c to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#050;&amp;#048;&amp;#049;&amp;#054;&amp;#045;&amp;#100;&amp;#116;&amp;#102;&amp;#045;&amp;#102;&amp;#101;&amp;#108;&amp;#108;&amp;#111;&amp;#119;&amp;#115;&amp;#104;&amp;#105;&amp;#112;&amp;#064;&amp;#099;&amp;#111;&amp;#100;&amp;#101;&amp;#102;&amp;#111;&amp;#114;&amp;#097;&amp;#117;&amp;#115;&amp;#116;&amp;#114;&amp;#097;&amp;#108;&amp;#105;&amp;#097;&amp;#046;&amp;#111;&amp;#114;&amp;#103;&quot;&gt;DTF Project Feedback&lt;/a&gt;&lt;/p&gt;</content><summary>04/09/2016</summary></entry><entry><title>Our fellowship begins with DTF</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Start/" rel="alternate" type="text/html" title="Our fellowship begins with DTF" /><published>2016-08-26T00:00:00+10:00</published><updated>2016-08-26T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Start</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Start/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
+&lt;p&gt;&lt;em&gt;26/08/2016&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF-Disc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;!--
 ![](/DTF-Blog/images/DTF_Flags_1.jpg)
@@ -45,8 +195,9 @@
 
 &lt;p&gt;&lt;em&gt;Paper prototypes of possible form ideas:&lt;/em&gt;
 &lt;img src=&quot;/DTF-Blog/images/DTF_Protos_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary>26/08/2016</summary></entry><entry><title>Our fellowship begins with CfA</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-First-week/" rel="alternate" type="text/html" title="Our fellowship begins with CfA" /><published>2016-08-08T00:00:00+10:00</published><updated>2016-08-08T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-First-week</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-First-week/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
-&lt;p&gt;&lt;em&gt;08/08/2016&lt;/em&gt;
-&lt;img src=&quot;https://codeforaustralia.github.io/DTF-Blog/images/CFA_day_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;08/08/2016&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://codeforaustralia.github.io/DTF-Blog/images/CFA_day_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;day-1&quot;&gt;Day 1&lt;/h3&gt;
 
