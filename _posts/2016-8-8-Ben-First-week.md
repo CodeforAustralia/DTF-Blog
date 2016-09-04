@@ -65,5 +65,4 @@ Our teams also self formed on Friday and obviously I was in the TDF team. It was
 
 I'll finish on a photo of lunch time discussions at TeamSquare level 4 with a few people from the DTF!
 
-
 ![](https://codeforaustralia.github.io/DTF-Blog/images/DTF_lunch.jpg)
