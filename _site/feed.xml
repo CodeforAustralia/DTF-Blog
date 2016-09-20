@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/" rel="alternate" type="text/html" /><updated>2016-09-05T10:35:23+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/</id><title>2016 DTF Fellowship Team</title><subtitle>A small band of dedicated civic hackers making a difference to the way government works</subtitle><entry><title>Prototyping at DTF</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes/" rel="alternate" type="text/html" title="Prototyping at DTF" /><published>2016-09-05T00:00:00+10:00</published><updated>2016-09-05T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/" rel="alternate" type="text/html" /><updated>2016-09-20T16:36:51+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/</id><title>2016 DTF Fellowship Team</title><subtitle>A small band of dedicated civic hackers making a difference to the way government works</subtitle><entry><title>User surveys and more and more prototypes</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-User-Survey/" rel="alternate" type="text/html" title="User surveys and more and more prototypes" /><published>2016-09-09T00:00:00+10:00</published><updated>2016-09-09T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-User-Survey</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-User-Survey/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
+&lt;p&gt;&lt;em&gt;20/09/2016&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Wonderful time of the year to have a front garden like this&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF_Garden_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+![](/DTF-Blog/images/DTF_Flags_1.jpg)
+--&gt;
+
+&lt;h3 id=&quot;learning-to-let-go&quot;&gt;Learning to let go&lt;/h3&gt;
+
+&lt;p&gt;The paper prototypes are dead, long live the paper prototypes. It’s sad but true, no sooner had we immortalized the prototypes by publishing them on the blog than we had to pack them up and file them away in the drawer marked “Excelent idea team, but now is not the time” :\ … however all is not lost, we’ve gained valuable insight into the DTFs desires and motivations by making them explain in clear language why some solutions are acceptable and others not&lt;/p&gt;
+
+&lt;p&gt;We were planning to mention that “We’ll be using rapid prototyping in our future work” about now but as you’ll see below, we already have. It has been a valuable method of digging down to the underlying emotions, requirements and desires of the client. It allows them to better visualize the underlying ideas behind a concept and makes it real and solid helping them to express why an idea might be genious/folly, what the like about it and even bring up related concepts they have had experiences with&lt;/p&gt;
+
+&lt;h3 id=&quot;picking-up-new-tools&quot;&gt;Picking up new tools&lt;/h3&gt;
+
+&lt;p&gt;We have setup Google Analytics on the teams web properties and while the results are not overly impressive at the moment we imagine that this will help us to focus our attention on the areas where it is most likely to have an impact&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF_Analytics_01.png&quot; alt=&quot;&quot; width=&quot;45%&quot; /&gt; &lt;img src=&quot;/DTF-Blog/images/DTF_Analytics_02.png&quot; alt=&quot;&quot; width=&quot;45%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF_Analytics_03.png&quot; alt=&quot;&quot; width=&quot;45%&quot; /&gt; &lt;img src=&quot;/DTF-Blog/images/DTF_Analytics_04.png&quot; alt=&quot;&quot; width=&quot;45%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We’ve also begun using a Trello board to help coordinate team activities and utilizing mind mapping software so that our brainstorming sessions can have a lasting impact&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF_MindMap_01.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;back-to-the-prototypes-now-with-surveys&quot;&gt;Back to the Prototypes… now with surveys&lt;/h3&gt;
+
+&lt;p&gt;Now with a new focus and a much broader user base we’ve been back at the whiteboard thrashing out ideas and concepts to be prototyped. We focused in on the valuable-achievable quadrant in a value-risk breakdown and came up with nine core features we could deliver within the time frame we have that could provide immediate value to DTF and the public at large&lt;/p&gt;
+
+&lt;p&gt;Rather than bore you by detailing each one and then send you off to do our survey we’ve embedded it right here so if you have a spare 15~20 minutes we’d be ever so gratefull if you’d fill it out and help guide the features you do/don’t want to see and have a &lt;b&gt;direct effect&lt;/b&gt; on this &lt;b&gt;democracy&lt;/b&gt; of ours&lt;/p&gt;
+
+&lt;iframe src=&quot;https://docs.google.com/forms/d/e/1FAIpQLSf8YHYE3LzU4R7QOCRocP2MMeLOZpYG6dSIBxcfi1uhgYPZ4Q/viewform?embedded=true&quot; width=&quot;760&quot; height=&quot;500&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;&gt;Loading...&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;There is also a link to the survey ready to be tweeted to the world:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Help provide feedback to the Vic Gov and @CodeforAus about public contracting data https://goo.gl/forms/m2IHygbsbgZHwyRd2&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;thats-another-wrap&quot;&gt;Thats another wrap&lt;/h2&gt;
+
+&lt;p&gt;In the mean time feel free to send any &lt;b&gt;C&lt;/b&gt;omments, &lt;b&gt;C&lt;/b&gt;orrections, &lt;b&gt;C&lt;/b&gt;oncerns, &lt;b&gt;C&lt;/b&gt;omplaints or anything else beginning with the letter &lt;strong&gt;“C”&lt;/strong&gt; to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#050;&amp;#048;&amp;#049;&amp;#054;&amp;#045;&amp;#100;&amp;#116;&amp;#102;&amp;#045;&amp;#102;&amp;#101;&amp;#108;&amp;#108;&amp;#111;&amp;#119;&amp;#115;&amp;#104;&amp;#105;&amp;#112;&amp;#064;&amp;#099;&amp;#111;&amp;#100;&amp;#101;&amp;#102;&amp;#111;&amp;#114;&amp;#097;&amp;#117;&amp;#115;&amp;#116;&amp;#114;&amp;#097;&amp;#108;&amp;#105;&amp;#097;&amp;#046;&amp;#111;&amp;#114;&amp;#103;&quot;&gt;DTF Project Feedback&lt;/a&gt;… that is if you don’t feel like leaving a comment below&lt;/p&gt;
+
+&lt;p&gt;We finish off this blog with a photo of one of the the meetings we’ve been told that we’re not allowed to attend (… and yet they keep having it withing earshot of our cubicles #YourMoneyHardAtWork)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF_SecretMeeting_01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary>20/09/2016</summary></entry><entry><title>Prototyping at DTF</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes/" rel="alternate" type="text/html" title="Prototyping at DTF" /><published>2016-09-05T00:00:00+10:00</published><updated>2016-09-05T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
 &lt;p&gt;&lt;em&gt;05/09/2016&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Australian, Aborigional, Torres Straits and Victorian flags fly over the DTFs front door&lt;/em&gt;&lt;/p&gt;
