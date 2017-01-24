@@ -21,7 +21,7 @@ _CfA stickers and flyers nestled in between FreeBSD and Drupal_
 
 ### Open Knowledge Miniconf
 
-The Johan and myself were speakers in the Open Knowledge miniconf and ended up bracketing the event with Johan as the first speaker and myself as the last.
+The Johan and myself were speakers in the Open Knowledge miniconf and ended up bracketing the event with Johan as the first speaker and myself as the last
 
 After Johan was Steven Ellis with a talk titled ["Almost Open - Just close the door behind you"](https://youtu.be/ceYMBBiVfCE?list=PLwGcrAT3m_vgpwSN3UWxwyrtAm3b4NGb-) where he discussed the changing dynamic of cultural forces exerted by the FOSS community on government and business. He encouraged us to try to get the government to simply acknowledge that they depend on and derive huge value from open source software already. For some reason governments seem unable to see (or publicly acknowledge) the benefits they already reap from open source in an eerily similar way that businesses were doing in the nineties and naughties. Steven also suggesting the financial benefits of FOSS to government such as the reduced maintenance costs by sharing the burden of support, negotiaion freedoms available due to a lack of vendor lock in and the benefits of a flourishing ecosystem feed by timely and effective access to data (read APIs). These benefits seem so obvious to those of us from the FOSS community that we forget that this might not be so obvious to a public servant for whom these are all new concepts
 
@@ -53,11 +53,11 @@ The final talk in the Law and Policy miniconf was ["A Layperson's Guide for Talk
 
 ### Other bits and pices
 
-The rest of the conference continued to include material relevant to our work with government but also included talks from a broad spread of possible topics. Michael Cordovers talk on ["Future privacy"](https://youtu.be/AfX6MGKNC34?list=PLwGcrAT3m_vj42HSjrNXGFcA4bZ-ban1D) touched on the importance of anonymization and the lack of importance of actual names in modern identity managment.
+The rest of the conference continued to include material relevant to our work with government but also included talks from a broad spread of possible topics. Michael Cordovers talk on ["Future privacy"](https://youtu.be/AfX6MGKNC34?list=PLwGcrAT3m_vj42HSjrNXGFcA4bZ-ban1D) touched on the importance of anonymization and the lack of importance of actual names in modern identity managment
 
-["Engaging with Open Data through Video Games"](https://youtu.be/7Js1PxZHjSo?list=PLwGcrAT3m_vj42HSjrNXGFcA4bZ-ban1D) by the trio Paris Buttfield-Addison, Jon Manning and Tim Nugent had a few helpful tips on presenting an interesting an exciting hackathon project even if it's not a game (and the importance of keeping it simple and keeping focused).
+["Engaging with Open Data through Video Games"](https://youtu.be/7Js1PxZHjSo?list=PLwGcrAT3m_vj42HSjrNXGFcA4bZ-ban1D) by the trio Paris Buttfield-Addison, Jon Manning and Tim Nugent had a few helpful tips on presenting an interesting an exciting hackathon project even if it's not a game (and the importance of keeping it simple and keeping focused)
 
-["Why haven't you licensed your project?"](https://youtu.be/R4SPny8FaAM?list=PLwGcrAT3m_vj42HSjrNXGFcA4bZ-ban1D) by Richard Fontana made me think that a role of "Licencing Zealot" at hackathons might not be as ridiculous as I'd first thought, there was also some food for thought about the post-open-source culture that has emerged over the past few years.
+["Why haven't you licensed your project?"](https://youtu.be/R4SPny8FaAM?list=PLwGcrAT3m_vj42HSjrNXGFcA4bZ-ban1D) by Richard Fontana made me think that a role of "Licencing Zealot" at hackathons might not be as ridiculous as I'd first thought, there was also some food for thought about the post-open-source culture that has emerged over the past few years
 
 Nat Dudley did an interesting (but almost entirely irrelevant) talk on ["Ada ❤️ Lace"](https://youtu.be/ZE4BNwBwYXw?list=PLwGcrAT3m_vj42HSjrNXGFcA4bZ-ban1D) and the role knitting played in the Belgium resistance movement, and more seriously the role a good community plays in an ecosystem
 
