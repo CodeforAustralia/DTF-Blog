@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What If... The DTF fellowship was 12 months
+title: What If... The DTF fellowship was for 12 months?
 ---
 
 _24/01/2017_

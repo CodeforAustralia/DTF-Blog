@@ -1,4 +1,227 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/" rel="alternate" type="text/html" /><updated>2017-01-24T13:52:28+11:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/</id><title>2016 CfA DTF Fellowship</title><subtitle>A small band of dedicated civic hackers making a difference to the way government works</subtitle><entry><title>What If… The DTF fellowship was 12 months</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-WhatIf-DTF-1Year/" rel="alternate" type="text/html" title="What If... The DTF fellowship was 12 months" /><published>2017-01-24T00:00:00+11:00</published><updated>2017-01-24T00:00:00+11:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-WhatIf-DTF-1Year</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-WhatIf-DTF-1Year/">&lt;p&gt;&lt;em&gt;24/01/2017&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/DTF-Blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/DTF-Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/DTF-Blog/" rel="alternate" type="text/html" /><updated>2017-01-25T16:45:13+11:00</updated><id>http://localhost:4000/DTF-Blog//</id><title type="html">2016 CfA DTF Fellowship</title><subtitle>A small band of dedicated civic hackers making a difference to the way government works</subtitle><entry><title type="html">Project Structure 101</title><link href="http://localhost:4000/DTF-Blog/ProjectStructure101/" rel="alternate" type="text/html" title="Project Structure 101" /><published>2017-01-25T00:00:00+11:00</published><updated>2017-01-25T00:00:00+11:00</updated><id>http://localhost:4000/DTF-Blog/ProjectStructure101</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/ProjectStructure101/">&lt;p&gt;&lt;em&gt;25/01/2017&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In this blog we will take you through a whirlwind tour of the application we’ve built during the fellowship, explain some of the conventions we’ve followed and where we’ve written our own playbook. We’ll begin by having a look at the top level directory structure in our project and mention the most important configurations and files&lt;/p&gt;
+
+&lt;p&gt;In the second post we’ll peek in at the most important configurations and files&lt;/p&gt;
+
+&lt;p&gt;In a third we’ll take a closer look at the &lt;code class=&quot;highlighter-rouge&quot;&gt;app/&lt;/code&gt; directory and see how this relates to the MVC architecture of rails then we’ll end our journey by looking in at a few of the views used in the application and how they relate to their related controllers and models&lt;/p&gt;
+
+&lt;p&gt;This description is based on the repository as it existed at the 16th of January as there are currently errors in the CCR deployment&lt;/p&gt;
+
+&lt;h3 id=&quot;getting-the-source&quot;&gt;Getting the source&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/101_src.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;It’s fun… if you like source code&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The source code for the project and standalone scraper can be found at the following locations, visit these pages in a browser to view and explore the github projects online&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/CodeforAustralia/dtf-genesis&quot;&gt;https://github.com/CodeforAustralia/dtf-genesis&lt;/a&gt;
+&lt;a href=&quot;https://github.com/PuZZleDucK/VIC_Tenders&quot;&gt;https://github.com/PuZZleDucK/VIC_Tenders&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to work on your own copy of the source you can fork your own copy of the repository or just clone a copy of ours by running the following commands&lt;/p&gt;
+
+&lt;div linenos=&quot;true&quot; class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git clone https://github.com/CodeforAustralia/dtf-genesis.git
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git clone https://github.com/PuZZleDucK/VIC_Tenders
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;application-root-directory&quot;&gt;Application root directory&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/101_1.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;You gotta start somewhere&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
+├── .git/
+├── app/
+├── bin/
+├── config/
+├── coverage/
+├── db/
+├── lib/
+├── log/
+├── public/
+├── test/
+├── tmp/
+├── vendor/
+├── .buildpacks
+├── .codeclimate.yml
+├── .gitignore
+├── .ruby-gemset
+├── .ruby-version
+├── .scrutinizer.yml
+├── .travis.yml
+├── config.ru
+├── erd.pdf
+├── Gemfile
+├── Gemfile.lock
+├── LICENSE
+├── Procfile
+├── Rakefile
+└── README.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Some preliminary explanations about file and directory structure are probably in order. One of the more arcane customs are the files and directories beginning with a “.” also referred to as “dot files”, this is a unix convention for hiding files and is often used for configuration files a user is unlikely to require or use often&lt;/p&gt;
+
+&lt;p&gt;In particular the “.git/” directory is a very special directory and should not be created or edited manually. It is the directory the git revision control program uses to store all the versions, branches, tags and history of your source code. This directory is created automatically when you run the “git clone” commands above and are unique to your system and shout not be committed into the repository or shared in any way… which is a nice segway into the “.gitignore” file, which lists a bunch of files and directories that git should not backup which could range from system dependant configurations, or log files through to sensitive data files&lt;/p&gt;
+
+&lt;p&gt;The files with the extention “.md” are called “markdown files”, these are text files with a little bit of extra formatting information allowing them to be easily converted into documents or web pages while still being readable in plain text. The &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; file contains much introductory material on setting up your own instance of the CCR system&lt;/p&gt;
+
+&lt;p&gt;We’ll delve into the &lt;code class=&quot;highlighter-rouge&quot;&gt;.codeclimate.yml&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;.scrutinizer.yml&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; in the “Project Structure 102” blog&lt;/p&gt;
+
+&lt;h3 id=&quot;config&quot;&gt;Config&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/101_2.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;Choices, choices, choices&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;config/
+├── environments/
+│   ├── development.rb
+│   ├── production.rb
+│   └── test.rb
+├── initializers/
+│   ├── active_admin.rb
+│   ├── active_record_extension.rb
+│   ├── application_controller_renderer.rb
+│   ├── assets.rb
+│   ├── backtrace_silencers.rb
+│   ├── clear_logs.rb
+│   ├── cookies_serializer.rb
+│   ├── devise.rb
+│   ├── filter_parameter_logging.rb
+│   ├── inflections.rb
+│   ├── mime_types.rb
+│   ├── new_framework_defaults.rb
+│   ├── scheduler.rb
+│   ├── session_store.rb
+│   ├── smart_listing.rb
+│   └── wrap_parameters.rb
+├── locales/
+│   ├── devise.en.yml
+│   └── en.yml
+├── application.rb
+├── boot.rb
+├── cable.yml
+├── database.yml
+├── environment.rb
+├── puma.rb
+├── routes.rb
+└── secrets.yml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The configuration directory contains all kinds of important (no supprise) settings used by the application and hosting provider. The &lt;code class=&quot;highlighter-rouge&quot;&gt;environment&lt;/code&gt; directory contains settings that may change between different deployment targets such as ‘production’ or ‘testing’. Most of the &lt;code class=&quot;highlighter-rouge&quot;&gt;initializers&lt;/code&gt; remain unused by us with the exception of &lt;code class=&quot;highlighter-rouge&quot;&gt;scheduler.rb&lt;/code&gt; which kicks of recurring tasks such as daily web-scraping which we’ll look at closer in 102. The &lt;code class=&quot;highlighter-rouge&quot;&gt;locales&lt;/code&gt; directory contains internationalisation settings which we have not utilized&lt;/p&gt;
+
+&lt;p&gt;Other crucial ones we’ll look at in depth next time are &lt;code class=&quot;highlighter-rouge&quot;&gt;production.rb&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;application.rb&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;database.yml&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;environment.rb&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;puma.rb&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;secrets.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;db&quot;&gt;DB&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/101_3.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;Data is like mortar only it’s incorporeal and doesn’t stick thinks together&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db/
+├── backup/
+│   ├── ....csv
+│   └── ....csv
+├── data/
+│   ├── agencies.csv
+│   ├── contract-status.csv
+│   ├── contract-types.csv
+│   ├── council.csv
+│   ├── csr_contract.csv
+│   ├── csr_referee_contact.csv
+│   ├── performance.csv
+│   ├── supplier.csv
+│   ├── TendersVicDataSingleLine.csv
+│   ├── tendersvic_mock_contracts.csv
+│   └── unspsc.csv
+├── migrate/
+│   ├── 20160920073558_create_contracts.rb
+│   ├── 20160927043201_   &quot;       &quot;  .rb
+│   ├── 20160927044609_   &quot;       &quot;  .rb
+│   ├── 20160927045940_   &quot;       &quot;  .rb
+│   └── 20170106024818_create_ccr_performance_reports.rb
+├── schema.rb
+└── seeds.rb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;db&lt;/code&gt; directory is also resonably self explanitory as the place to go for any database information. The &lt;code class=&quot;highlighter-rouge&quot;&gt;backup&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;data&lt;/code&gt; directories contain various “.csv” files used to load or dump data to and from the CCR. The seeds file contains a few simple data items required to setup the CCR such as tables for the status codes and associated text&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;migrate/&lt;/code&gt; directory and &lt;code class=&quot;highlighter-rouge&quot;&gt;schema.rb&lt;/code&gt; file have a special relationship that Rails attempts to maintain. These two sources should describe the same database structure via two different means, the migrations describe how to build the database step by step as it was done throughout the project complete with renaming and reversed decisions. The &lt;code class=&quot;highlighter-rouge&quot;&gt;schema.rb&lt;/code&gt; file contains the current state of the database and will be equivalent to running all the migrations and dumping the database state. We’ll look a bit closer at the schema file in 102&lt;/p&gt;
+
+&lt;h4 id=&quot;tests&quot;&gt;tests&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/101_4.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;Just like walls, tests give you security and a fuzzy warm feeling&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;test/
+├── controllers/
+│   ├── contracts_controller_test.rb
+│   ├──    &quot;     _controller_test.rb
+├── fixtures/
+│   ├── contracts.yml
+│   ├──    &quot;     .yml
+├── helpers/
+├── integration/
+│   ├── linker_test.rb
+│   └── scraper_test.rb
+├── mailers/
+├── models/
+│   ├── contract_test.rb
+│   ├──     &quot;   _test.rb
+└── test_helper.rb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The test directory contains all the setup, data and code to run and verify the tests. The tests for this project are minimal and simple and do not guarantee program correctness, but they are a handy sanity check and safety rope to use during program development&lt;/p&gt;
+
+&lt;h3 id=&quot;app-structure&quot;&gt;App structure&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/101_5.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;With the foundations prepared we were ready to start adding “capabilities”&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/
+├── admin/
+│   ├── contract.rb
+│   ├──    &quot;    .rb
+│   └── user.rb
+├── assets/
+│   ├── config/
+│   ├── images/
+│   ├── javascripts/
+│   │   ├── application.js
+│   │   ├── charts.js
+│   │   ├── segmentio.js
+│   │   ├──     &quot;    .js
+│   └── stylesheets/
+│       ├── application.scss
+│       ├──      &quot;     .scss
+├── channels/
+│   └── application_cable/
+├── controllers/
+│   ├── contracts_controller.rb
+│   ├──     &quot;    _controller.rb
+│   └── suppliers_controller.rb
+├── helpers/
+│   ├── contracts_helper.rb
+│   ├──     &quot;    _helper.rb
+│   └── value_types_helper.rb
+├── jobs/
+│   └── application_job.rb
+├── mailers/
+│   └── application_mailer.rb
+├── models/
+│   ├── contract.rb
+│   ├──     &quot;   .rb
+│   └── user.rb
+└── views/
+    ├── contracts/
+    ├──     &quot;  /
+    └── users/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We’ll delve into the &lt;code class=&quot;highlighter-rouge&quot;&gt;app&lt;/code&gt; directory heavily when we cover the Model, View, Controller paradim in the third article detailing the CCR system so I’ll cover the &lt;code class=&quot;highlighter-rouge&quot;&gt;models&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;views&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;helpers&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;controllers&lt;/code&gt; directories in detail then. The &lt;code class=&quot;highlighter-rouge&quot;&gt;assets&lt;/code&gt; directory contains the images, styles and javascript included in almost every page on the site and we’ll have a look at the most important of these in the 102 section. The &lt;code class=&quot;highlighter-rouge&quot;&gt;admin&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;channels&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;jobs&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;mailers&lt;/code&gt; directories are not utilised in our project and not covered in detail.&lt;/p&gt;
+
+&lt;p&gt;Hope you enjoyed this overview and will be back soon to see the gritty details inside some of these files in Project Structure 102&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/101_6.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;Oh my, what have we created!&lt;/em&gt;&lt;/p&gt;</content><summary type="html">25/01/2017</summary></entry><entry><title type="html">What If… The DTF fellowship was for 12 months?</title><link href="http://localhost:4000/DTF-Blog/Ben-WhatIf-DTF-1Year/" rel="alternate" type="text/html" title="What If... The DTF fellowship was for 12 months?" /><published>2017-01-24T00:00:00+11:00</published><updated>2017-01-24T00:00:00+11:00</updated><id>http://localhost:4000/DTF-Blog/Ben-WhatIf-DTF-1Year</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-WhatIf-DTF-1Year/">&lt;p&gt;&lt;em&gt;24/01/2017&lt;/em&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;warning-strikecomic-bookstrike-graphic-novel-trope-ahead&quot;&gt;Warning: &lt;strike&gt;Comic Book&lt;/strike&gt; Graphic Novel Trope Ahead&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/IF_5.jpg&quot; alt=&quot;&quot; /&gt;
@@ -30,7 +253,7 @@ We were able to explore other hosting platforms in the time we had left while th
 
 &lt;p&gt;Unfortunately over the longer time frame the cracks in my personal systems started to show and the information overload I was experiencing got the better of me. I stopped checking my CfA and DTF emails even on a weekly basis and started to find out via slack that I was missing out on appointments and communications I was expected to respond to… so it’s not all roses and cherries on this alternative Earth&lt;/p&gt;
 
-&lt;p&gt;Hope you enjoyed this first “What if…?” post (despite the sad, sad ending) and will join me in the (possible) future for such episodes as “What if… the DTF fellowship program only lasted a month?”, “What if… CfA had a fellowship on Jupiter?” and “What if… the DTF fellowship was with Tenders Vic?”&lt;/p&gt;</content><summary>24/01/2017</summary></entry><entry><title>CfA at Linux Conf Au 2017</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-LCA_Wrapup/" rel="alternate" type="text/html" title="CfA at Linux Conf Au 2017" /><published>2017-01-23T00:00:00+11:00</published><updated>2017-01-23T00:00:00+11:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-LCA_Wrapup</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-LCA_Wrapup/">&lt;p&gt;&lt;em&gt;23/01/2017&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Hope you enjoyed this first “What if…?” post (despite the sad, sad ending) and will join me in the (possible) future for such episodes as “What if… the DTF fellowship program only lasted a month?”, “What if… CfA had a fellowship on Jupiter?” and “What if… the DTF fellowship was with Tenders Vic?”&lt;/p&gt;</content><summary type="html">24/01/2017</summary></entry><entry><title type="html">CfA at Linux Conf Au 2017</title><link href="http://localhost:4000/DTF-Blog/Ben-LCA_Wrapup/" rel="alternate" type="text/html" title="CfA at Linux Conf Au 2017" /><published>2017-01-23T00:00:00+11:00</published><updated>2017-01-23T00:00:00+11:00</updated><id>http://localhost:4000/DTF-Blog/Ben-LCA_Wrapup</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-LCA_Wrapup/">&lt;p&gt;&lt;em&gt;23/01/2017&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Image from “Planning Alerts, State Contracts then The World”&lt;/em&gt;&lt;/p&gt;
 
@@ -112,7 +335,7 @@ We were able to explore other hosting platforms in the time we had left while th
 
 &lt;p&gt;&lt;em&gt;My impression of what the other teams do&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/LCA_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary>23/01/2017</summary></entry><entry><title>Development OnLine</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-OnLine/" rel="alternate" type="text/html" title="Development OnLine" /><published>2016-10-21T00:00:00+11:00</published><updated>2016-10-21T00:00:00+11:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-OnLine</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-OnLine/">&lt;p&gt;&lt;em&gt;21/10/2016&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/LCA_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary type="html">23/01/2017</summary></entry><entry><title type="html">Development OnLine</title><link href="http://localhost:4000/DTF-Blog/Ben-DTF-OnLine/" rel="alternate" type="text/html" title="Development OnLine" /><published>2016-10-21T00:00:00+11:00</published><updated>2016-10-21T00:00:00+11:00</updated><id>http://localhost:4000/DTF-Blog/Ben-DTF-OnLine</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-DTF-OnLine/">&lt;p&gt;&lt;em&gt;21/10/2016&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Australian, Aborgional, Torres Strait Islander and Victorian flags flying out along the “second front” of Treasury&lt;/em&gt;&lt;/p&gt;
 
@@ -140,7 +363,7 @@ We were able to explore other hosting platforms in the time we had left while th
 
 &lt;p&gt;Now that we have a working minimum viable product we’ve been starting to show it off around the DTF and have even garnered some interest from people outside our own group. It’s been very rewarding getting feedback on the value of our outputs already. Another encouraging sign was that some people are already interested in using it and having it available as a resource for their day to day (or not so run of the mill) work. We were even able to capture this snap of a user “in the wild” trying out our tool and telling us what they want next&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/MVP_demo.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary>21/10/2016</summary></entry><entry><title>User surveys and more and more prototypes</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-User-Survey/" rel="alternate" type="text/html" title="User surveys and more and more prototypes" /><published>2016-09-09T00:00:00+10:00</published><updated>2016-09-09T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-User-Survey</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-User-Survey/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/MVP_demo.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary type="html">21/10/2016</summary></entry><entry><title type="html">User surveys and more and more prototypes</title><link href="http://localhost:4000/DTF-Blog/Ben-DTF-User-Survey/" rel="alternate" type="text/html" title="User surveys and more and more prototypes" /><published>2016-09-09T00:00:00+10:00</published><updated>2016-09-09T00:00:00+10:00</updated><id>http://localhost:4000/DTF-Blog/Ben-DTF-User-Survey</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-DTF-User-Survey/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
 &lt;p&gt;&lt;em&gt;20/09/2016&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Wonderful time of the year to have a front garden like this&lt;/em&gt;&lt;/p&gt;
@@ -189,7 +412,7 @@ We were able to explore other hosting platforms in the time we had left while th
 
 &lt;p&gt;We finish off this blog with a photo of one of the the meetings we’ve been told that we’re not allowed to attend (… and yet they keep having it withing earshot of our cubicles #YourMoneyHardAtWork)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF_SecretMeeting_01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary>20/09/2016</summary></entry><entry><title>Prototyping at DTF</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes/" rel="alternate" type="text/html" title="Prototyping at DTF" /><published>2016-09-05T00:00:00+10:00</published><updated>2016-09-05T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Prototypes/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF_SecretMeeting_01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary type="html">20/09/2016</summary></entry><entry><title type="html">Prototyping at DTF</title><link href="http://localhost:4000/DTF-Blog/Ben-DTF-Prototypes/" rel="alternate" type="text/html" title="Prototyping at DTF" /><published>2016-09-05T00:00:00+10:00</published><updated>2016-09-05T00:00:00+10:00</updated><id>http://localhost:4000/DTF-Blog/Ben-DTF-Prototypes</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-DTF-Prototypes/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
 &lt;p&gt;&lt;em&gt;05/09/2016&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Australian, Aborigional, Torres Straits and Victorian flags fly over the DTFs front door&lt;/em&gt;&lt;/p&gt;
@@ -403,7 +626,7 @@ We were able to explore other hosting platforms in the time we had left while th
 
 &lt;p&gt;Well that the roundup of our current prototypes, hopefully we’ll have a few digitized versions for you to click on soon enough&lt;/p&gt;
 
-&lt;p&gt;In the mean time feel free to send any &lt;b&gt;C&lt;/b&gt;omments, &lt;b&gt;C&lt;/b&gt;orrections, &lt;b&gt;C&lt;/b&gt;oncerns, &lt;b&gt;C&lt;/b&gt;omplaints or anything else beginning with the letter &lt;strong&gt;“C”&lt;/strong&gt; to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#050;&amp;#048;&amp;#049;&amp;#054;&amp;#045;&amp;#100;&amp;#116;&amp;#102;&amp;#045;&amp;#102;&amp;#101;&amp;#108;&amp;#108;&amp;#111;&amp;#119;&amp;#115;&amp;#104;&amp;#105;&amp;#112;&amp;#064;&amp;#099;&amp;#111;&amp;#100;&amp;#101;&amp;#102;&amp;#111;&amp;#114;&amp;#097;&amp;#117;&amp;#115;&amp;#116;&amp;#114;&amp;#097;&amp;#108;&amp;#105;&amp;#097;&amp;#046;&amp;#111;&amp;#114;&amp;#103;&quot;&gt;DTF Project Feedback&lt;/a&gt;… that is if you don’t feel like leaving a comment in our spiffy new comments section below telling us which ones you love and/or hate :D&lt;/p&gt;</content><summary>05/09/2016</summary></entry><entry><title>Our fellowship begins with DTF</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Start/" rel="alternate" type="text/html" title="Our fellowship begins with DTF" /><published>2016-08-26T00:00:00+10:00</published><updated>2016-08-26T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Start</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-DTF-Start/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
+&lt;p&gt;In the mean time feel free to send any &lt;b&gt;C&lt;/b&gt;omments, &lt;b&gt;C&lt;/b&gt;orrections, &lt;b&gt;C&lt;/b&gt;oncerns, &lt;b&gt;C&lt;/b&gt;omplaints or anything else beginning with the letter &lt;strong&gt;“C”&lt;/strong&gt; to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#050;&amp;#048;&amp;#049;&amp;#054;&amp;#045;&amp;#100;&amp;#116;&amp;#102;&amp;#045;&amp;#102;&amp;#101;&amp;#108;&amp;#108;&amp;#111;&amp;#119;&amp;#115;&amp;#104;&amp;#105;&amp;#112;&amp;#064;&amp;#099;&amp;#111;&amp;#100;&amp;#101;&amp;#102;&amp;#111;&amp;#114;&amp;#097;&amp;#117;&amp;#115;&amp;#116;&amp;#114;&amp;#097;&amp;#108;&amp;#105;&amp;#097;&amp;#046;&amp;#111;&amp;#114;&amp;#103;&quot;&gt;DTF Project Feedback&lt;/a&gt;… that is if you don’t feel like leaving a comment in our spiffy new comments section below telling us which ones you love and/or hate :D&lt;/p&gt;</content><summary type="html">05/09/2016</summary></entry><entry><title type="html">Our fellowship begins with DTF</title><link href="http://localhost:4000/DTF-Blog/Ben-DTF-Start/" rel="alternate" type="text/html" title="Our fellowship begins with DTF" /><published>2016-08-26T00:00:00+10:00</published><updated>2016-08-26T00:00:00+10:00</updated><id>http://localhost:4000/DTF-Blog/Ben-DTF-Start</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-DTF-Start/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
 &lt;p&gt;&lt;em&gt;26/08/2016&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/DTF-Disc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -450,7 +673,7 @@ We were able to explore other hosting platforms in the time we had left while th
 &lt;p&gt;This week in addition to continuing our research into reporting practices and requirements we have begun prototyping some possible forms for our solution. Below are a selection of our ideas and prototypes we have been considering&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Paper prototypes of possible form ideas:&lt;/em&gt;
-&lt;img src=&quot;/DTF-Blog/images/DTF_Protos_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary>26/08/2016</summary></entry><entry><title>Our fellowship begins with CfA</title><link href="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-First-week/" rel="alternate" type="text/html" title="Our fellowship begins with CfA" /><published>2016-08-08T00:00:00+10:00</published><updated>2016-08-08T00:00:00+10:00</updated><id>https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-First-week</id><content type="html" xml:base="https://codeforaustralia.github.io/DTF-Blog/DTF-Blog/Ben-First-week/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
+&lt;img src=&quot;/DTF-Blog/images/DTF_Protos_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary type="html">26/08/2016</summary></entry><entry><title type="html">Our fellowship begins with CfA</title><link href="http://localhost:4000/DTF-Blog/Ben-First-week/" rel="alternate" type="text/html" title="Our fellowship begins with CfA" /><published>2016-08-08T00:00:00+10:00</published><updated>2016-08-08T00:00:00+10:00</updated><id>http://localhost:4000/DTF-Blog/Ben-First-week</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-First-week/">&lt;!-- https://codeforaustralia.github.io/DTF-Blog/ --&gt;
 &lt;p&gt;&lt;em&gt;08/08/2016&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://codeforaustralia.github.io/DTF-Blog/images/CFA_day_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -511,4 +734,4 @@ We were able to explore other hosting platforms in the time we had left while th
 
 &lt;p&gt;I’ll finish on a photo of lunch time discussions at TeamSquare level 4 with a few people from the DTF!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://codeforaustralia.github.io/DTF-Blog/images/DTF_lunch.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary>08/08/2016</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;https://codeforaustralia.github.io/DTF-Blog/images/DTF_lunch.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary type="html">08/08/2016</summary></entry></feed>
