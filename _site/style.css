@@ -63,6 +63,17 @@ html {
   font-size: 100%;
 }
 
+code {
+  background: #FFFF66;
+  border: 1px solid #000;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+pre {
+  background: #FFFF66;
+}
+
 body {
   background: #fff;
   font: 18px/1.4 Helvetica, Arial, sans-serif;

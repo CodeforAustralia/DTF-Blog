@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What If... The DTF fellowship was with Tenders Vic? – 2016 CfA DTF Fellowship – A small band of dedicated civic hackers making a difference to the way government works</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="30/01/2017
+
+" />
+    <meta property="og:description" content="30/01/2017
+
+" />
+    
+    <meta name="author" content="2016 CfA DTF Fellowship" />
+
+    
+    <meta property="og:title" content="What If... The DTF fellowship was with Tenders Vic?" />
+    <meta property="twitter:title" content="What If... The DTF fellowship was with Tenders Vic?" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/DTF-Blog/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="2016 CfA DTF Fellowship - A small band of dedicated civic hackers making a difference to the way government works" href="/DTF-Blog/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/DTF-Blog/" class="site-avatar"><img src="https://codeforaustralia.github.io/DTF-Blog/images/CFA_FLogo.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/DTF-Blog/">2016 CfA DTF Fellowship</a></h1>
+            <p class="site-description">A small band of dedicated civic hackers making a difference to the way government works</p>
+          </div>
+
+          <nav>
+            <a href="/DTF-Blog/">Blog</a>
+            <a href="/DTF-Blog/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>What If... The DTF fellowship was with Tenders Vic?</h1>
+
+  <div class="entry">
+    <p><em>30/01/2017</em></p>
+
+<h3 id="what-if-the-dtf-fellowship-was-with-tenders-vic">What if… the DTF fellowship was with Tenders Vic?</h3>
+<p><img src="/DTF-Blog/images/spider-hi.jpeg" alt="" />
+I wanted to try exploring some of the blockers we experienced working at the Department of Treasury and Finance and show off some auxiliary work I’ve been able to achieve by looking at what might have happened in a subtly different universe… so subtle that it’s almost the universe we live in now. The DTF public servant who formed the challenge we participated in and championed its progress through the process has recently been reassigned into another unit in the same grouping as Tenders VIC. This has already resulted in increased contact between our team and the Tenders Vic team and if the challenge was being formed now it would most probably be identified as the biggest bottleneck worth working on. I’m guessing that our project challenge would have been a government spending dashboard using the tenders Vic data, much like what we’ve been able to create for the construction group</p>
+
+<h3 id="are-you-sure-you-dont-want-me-to-scrape-anything">Are you sure you don’t want me to scrape anything?</h3>
+<p><img src="/DTF-Blog/images/spider_ready.jpeg" alt="" />
+With my preferred task unnecessary I wonder what I would have done early in the project. We would have still been prototyping a UI on paper so that much would have been much the same. What did change in the early stages of the project was that we already knew what data we had to work with and had sample extracts and example data sets to play with. We also could have built on prior open source “government spending dashboards” like the UKs <a href="https://www.gov.uk/performance/g-cloud">gov.uk</a> and Australias own <a href="http://lovemetender.com.au/">LoveMeTender</a></p>
+
+<p>It would have also been exciting to consider an “all levels of government” dashboard by combining council budgets, Tenders Vic contracts and Aus Tenders contracts. This dataset could be combined with the <a href="http://planningalerts.org.au/">Planning Alerts</a> data sets to create a “whole of economy” view of construction across Victoria. This would allow departments to monitor the general market trends and better predict the best moment to enter the market based on industry capacity and utilisation</p>
+
+<p>There was a few simple and easy quick wins working with the Tenders Vic group to improve the site in-situ. Simply adding an appropriatly crafted <a href="https://en.wikipedia.org/wiki/Robots_exclusion_standard">robots.txt</a> improved the searchability of the site and adding appropriate <a href="http://www.w3schools.com/tags/tag_meta.asp">meta tags</a> to the headers of pages made links and shares of contracts more useful and presentable. Then adding social media links and share buttons only required cosmetic changes</p>
+
+<h3 id="getting-a-dataset-onto-datavicgov">Getting a dataset onto data.vic.gov</h3>
+<p><img src="/DTF-Blog/images/spider-meeting.jpeg" alt="" />
+It was always interesting talking to the Tenders Vic people and demonstrating the amazing things that could be done with the data when it’s put into the right hands. In this world I was in some of the meetings where they decide that updating the current system would cost too much and we’d better just keep using it… like those are the only options. That’s about when I jump up and yell “No dammit!, every day you continue to use this system costs you hours of manual fiddling and costs other departments hours of uncertainty and agony!”, I’d take a deep breath and compose myself, straighten my shirt and gently cough, before blurting out “don’t you see that people give up because this system is just too unwieldy, they give up on getting the right data for the decision they need to make, they give up on getting timely information on the projects that matter to their units, they just start to give up on the public service as a whole and come to expect this level of service, and this costs Australia more and more and more in wasted productivity every day it’s allowed to continue!”… and that’s about when they kick me out of those meetings</p>
+
+<p>I suppose because of the small wins we’d made early, despite being kicked out of the meetings, Tenders Vic was convinced that something could be done now without spending a small fortune on an upgrade. One of the Tenders Vic crew stepped up to become custodian of the Tenders Vic data and then it was just a matter of writing a tool on the Tenders Vic platform to access the database and upload onto a morph.io database. This then unlocked the download and API functionality to get onto the Data.Vic platform which we had to get by web scraping and <a href="https://www.righttoknow.org.au/request/contracts_published_on_tenders_v">freedom of information requests</a> in the normal world</p>
+
+<h3 id="linking-tenders-with-contracts">Linking Tenders with Contracts</h3>
+<p><img src="/DTF-Blog/images/spider-link.jpeg" alt="" />
+With the Tenders Vic data now on Data.Vic we were then able to turn our attention on the linking of tenders and contract data. Thankfully in this parallel world we still had the same interview opportunity with the PRU team and just like in our universe the significance of the interview passed us by on the day. However in this universe during our next sprint planning session we all agreed that writing a little app for the PRU was a huge priority and we realised that by writing a little app here we could have big wins in terms of reducing data entry errors, providing links to the related tenders of a contract, tracking the project a contract falls under and breaking out address information where relevant</p>
+
+<h3 id="mapping-the-future">Mapping the Future</h3>
+<p><img src="/DTF-Blog/images/spider_maps.jpeg" alt="" />
+After creating the PRU tool for transferring tenders to contracts the Code for Australia fellowship was starting to wrap up and we only had a few weeks to go could we use the newly available address data to create a map of government spending across Victoria. Unfortunately we made the mistake of rushing and ended up committing the cardinal sin of software development by breaking the build… several times, often before demonstrations with important stakeholders resulting in sketchy feedback. While a more cautious and incremental approach might have yielded some fruit by the end of the fellowship our rushed attempt had to be abandoned and we had to roll back to a prior stable version loosing quite a bit of work and having nothing new to demonstrate in our final sprint showcases, dampening enthusiasm for the program as a whole</p>
+
+<p><img src="/DTF-Blog/images/spider_crystal.jpeg" alt="" /></p>
+
+  </div>
+
+  <div class="date">
+    Written on January 30, 2017
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'cfv-dtf';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:2016-dtf-fellowship@codeforaustralia.org"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/CodeforAustralia/DTF-Blog"><i class="svg-icon github"></i></a>
+
+
+
+<a href="/DTF-Blog/feed.xml"><i class="svg-icon rss"></i></a>
+<a href="https://www.twitter.com/CodeforAus"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-83515316-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/DTF-Blog/Ben-WhatIf-DTF-TendersVIC/',
+		  'title': 'What If... The DTF fellowship was with Tenders Vic?'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
