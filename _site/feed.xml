@@ -1,4 +1,510 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/DTF-Blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/DTF-Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/DTF-Blog/" rel="alternate" type="text/html" /><updated>2017-01-30T15:46:54+11:00</updated><id>http://localhost:4000/DTF-Blog//</id><title type="html">2016 CfA DTF Fellowship</title><subtitle>A small band of dedicated civic hackers making a difference to the way government works</subtitle><entry><title type="html">What If… The DTF fellowship was with Tenders Vic?</title><link href="http://localhost:4000/DTF-Blog/Ben-WhatIf-DTF-TendersVIC/" rel="alternate" type="text/html" title="What If... The DTF fellowship was with Tenders Vic?" /><published>2017-01-30T00:00:00+11:00</published><updated>2017-01-30T00:00:00+11:00</updated><id>http://localhost:4000/DTF-Blog/Ben-WhatIf-DTF-TendersVIC</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-WhatIf-DTF-TendersVIC/">&lt;p&gt;&lt;em&gt;30/01/2017&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/DTF-Blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/DTF-Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/DTF-Blog/" rel="alternate" type="text/html" /><updated>2017-01-31T23:35:16+11:00</updated><id>http://localhost:4000/DTF-Blog//</id><title type="html">2016 CfA DTF Fellowship</title><subtitle>A small band of dedicated civic hackers making a difference to the way government works</subtitle><entry><title type="html">Project Structure 102</title><link href="http://localhost:4000/DTF-Blog/Ben-ProjectStructure102/" rel="alternate" type="text/html" title="Project Structure 102" /><published>2017-01-31T00:00:00+11:00</published><updated>2017-01-31T00:00:00+11:00</updated><id>http://localhost:4000/DTF-Blog/Ben-ProjectStructure102</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-ProjectStructure102/">&lt;p&gt;&lt;em&gt;31/01/2017&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Welcome to the second post covering the project structure and code. In this post we’ll peek in at the most important configurations and files and custom code&lt;/p&gt;
+
+&lt;p&gt;This description is based on the repository as it existed at the 16th of January (commit &lt;a href=&quot;https://github.com/CodeforAustralia/dtf-genesis/tree/59ebd8bbae112d6709d0affd7d0e74f1bf992510&quot;&gt;59ebd8bbae112d6709d0affd7d0e74f1bf992510&lt;/a&gt; to be exact) as there have been some significant changes and it’s a moving target&lt;/p&gt;
+
+&lt;h3 id=&quot;rails-isms-ruby-isms-and-a-little-about-regular-expressions&quot;&gt;Rails-isms, Ruby-isms and a little about Regular Expressions&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/102_book.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There are a few preliminary code structures I feel it worth getting out of the way before delving into the details of what we’ve done to make the CCR, we will assume basic familiarity with programming but no particular language should be required to understand the code presented.&lt;/p&gt;
+
+&lt;p&gt;The first of these I have grown to love in Ruby which is string interpolation, there are two significant types of strings we’ve used: those with single quote &lt;code class=&quot;highlighter-rouge&quot;&gt;'&lt;/code&gt; and those with double quote &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;&lt;/code&gt;. The single quote strings are literal strings and as far as we’re concerned these never undergo interpolation and represent exactly the string that appears on screen, for example the code:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;x = 'not #{interpolated}'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;would result in x containing &lt;code class=&quot;highlighter-rouge&quot;&gt;not #{interpolated}&lt;/code&gt;. However the strikingly similar code:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;string = 'variable value'
+x = &quot;interpolated #{string}&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;would result in the value of x depending on the variable &lt;code class=&quot;highlighter-rouge&quot;&gt;string&lt;/code&gt; and in this example would be &lt;code class=&quot;highlighter-rouge&quot;&gt;interpolated variable value&lt;/code&gt;. Ruby uses the &lt;code class=&quot;highlighter-rouge&quot;&gt;#{}&lt;/code&gt; sequence to escape a little bit of code within a string at runtime&lt;/p&gt;
+
+&lt;p&gt;Ruby also have some special syntax for arrays and ranges in an array it is common enough for a language to allow indexing into a string like it was an array, and in Ruby the string literal itself can be used to index into, so for example &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;string&quot;[2]&lt;/code&gt; would evaluate to &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;r&quot;&lt;/code&gt;. A neat array trick of many modern languages that Ruby also provides is &lt;strong&gt;ranges&lt;/strong&gt;, where the beginning and ending subscripts of an array can be provided to produce a sub-array or sub-string, lets look at three examples:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;string&quot;[2...4]&lt;/code&gt; would evaluate to  &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;ri&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;string&quot;[2..9]&lt;/code&gt; would be &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;ring&quot;&lt;/code&gt; and&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;string&quot;[1..-2]&lt;/code&gt; would result in &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;trin&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The first example demonstrates the exclusive &lt;code class=&quot;highlighter-rouge&quot;&gt;...&lt;/code&gt; by not including the “n”, where using the inclusive &lt;code class=&quot;highlighter-rouge&quot;&gt;..&lt;/code&gt; range operator would have resulted in the string &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;rin&quot;&lt;/code&gt;, the second example demonstrates how Ruby can be helpful and returns an array as long as it can and the last example shows how Ruby uses negative indexes into an array as a shortcut for indexing from the end, such that -1 is the last array entry, -2 the second last, and so on.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/102_foil.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We also use a couple of &lt;strong&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended&quot;&gt;regular expressions&lt;/a&gt;&lt;/strong&gt; that I have skittishly encapsulated away into a couple of functions. These regular expressions are much simpler than the ones we began our scraping with and can be understood with familiarity of only a few regular expression characters. First up is the period &lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; character, this character simply matches &lt;strong&gt;any&lt;/strong&gt; non-newline character… (almost) everyone loves &lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;. Next up I feel obliged to introduce a trio, although we only use two of them in our code they are rather interrelated, these are the star &lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt; plus &lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt; and optional &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; regular expression &lt;strong&gt;quantifiers&lt;/strong&gt;, they all operate on the character before them and specify how many of those characters to match. Pairing each one up with our period operator we get the three regular expressions;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.*&lt;/code&gt; which matches any string of &lt;strong&gt;zero or more&lt;/strong&gt; characters,&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.+&lt;/code&gt; which matches any string of &lt;strong&gt;one or more&lt;/strong&gt; characters and&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.?&lt;/code&gt; which matches any string of &lt;strong&gt;zero or one&lt;/strong&gt; characters.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now we’ve got the regular expression basics done how do we use this. One last bit of regular expression syntax we’ll explore is the pair of parenthesis or &lt;strong&gt;grouping&lt;/strong&gt; symbols &lt;code class=&quot;highlighter-rouge&quot;&gt;(&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;)&lt;/code&gt; which are used to group a segment of a regular expression. We can use them in a simple example in just a minute but to do so we’ll need one little bit of Ruby which is the regular expression matching syntax &lt;code class=&quot;highlighter-rouge&quot;&gt;//&lt;/code&gt; which operate a bit like quotes around a string and are used on strings in conjunction with the &lt;strong&gt;match&lt;/strong&gt; function like so: &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;string&quot;.match(/.?.?.?/)&lt;/code&gt;, this returns a &lt;strong&gt;MatchData&lt;/strong&gt; object with the value &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;str&quot;&lt;/code&gt; made up of the three optional characters. If we now start grouping the regular expression buy putting parenthesis around the first optional character and the last two optional characters like this &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;string&quot;.match(/(.?)(.?.?)/)&lt;/code&gt; we now get a match (with the value &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;str&quot;&lt;/code&gt;) along with two groups where the first is &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;s&quot;&lt;/code&gt; and the second is &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tr&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;One last bit of tecnocrati I’d like to demystify before we proceed to the code is some basics of &lt;strong&gt;URL syntax&lt;/strong&gt;. The humble url is made up of many components but often the function or significance of the component is taken for granted or often just uses default values. Lets start with the misleadingly simple example of “google.com” (and can often be reached by typing “goog&amp;lt;return&amp;gt;”) which is only shorthand for the much more complete “https://www.google.com:443/?gfe_rd=cr&amp;amp;ei=3eyNWN_3JNPM3gfE0L3wBA” which much more nicely demonstrates the components we might wish to tease apart. The first component is the &lt;strong&gt;protocol&lt;/strong&gt; and is usually “http” or more often these days “https” which I won’t go into here. The “www” in our example is an identifier to the server of what kind of request we are making, this is often assumed to be a &lt;strong&gt;web&lt;/strong&gt; or www request if not specified. the “google.com” is the address of the &lt;strong&gt;server&lt;/strong&gt; where result will be served from. The value “:443” specifies that we wish to use the default https &lt;strong&gt;port&lt;/strong&gt;, but could be specified if another port on the server is expecting requests. Our example does not specify a &lt;strong&gt;page&lt;/strong&gt; for the server to serve so the default page is selected, but optionaly a path is specified between the last slash and the question mark. The question mark &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; signifies the beginning of the &lt;strong&gt;parameters&lt;/strong&gt; sent to the page. The paramaters are &lt;strong&gt;key-value pairs&lt;/strong&gt; specified in the format &lt;code class=&quot;highlighter-rouge&quot;&gt;key=value&lt;/code&gt; and are delimited by ampersand &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&lt;/code&gt; characters, so our example has two pairs “gfe_rd=cr” and “ei=3eyNWN_3JNPM3gfE0L3wBA” which are probably referrer or tracking identifiers. A final note about URL syntax, the &lt;strong&gt;space character&lt;/strong&gt; is not allowed in URLs so the space character is often represented by the value “%20”, so to assign “this string” to the key “x”, we would need to translate the string into URL syntax and use &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;x=this%20string&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;documentation&quot;&gt;Documentation&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/102_docs2.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The CCR system we’ve created has been licensed under the &lt;strong&gt;GPL v3&lt;/strong&gt; and a copy of this license is in the file called “LICENSE” and I’d just like to take a moment to outline why this licence has been selected. If you look at the &lt;a href=&quot;https://choosealicense.com/&quot;&gt;choose a license&lt;/a&gt; site the tag line for GPL v3 is “I care about &lt;strong&gt;sharing improvements&lt;/strong&gt;” and it goes on to summarise the requirements as “anyone who distributes your code or a derivative work to make the source available under the same terms”. It seems to be a recurring theme within government to have a custom piece of software written and then not have the expertise or even access to the program or source code to make even minor adjustments and improvements. The GPL v3 was written expressly to prevent this kind of vendor lock in situation and allows the user of a software product to remain in control. Many software vendors will recommend against the GPL family of licenses because the lose bargaining power to the user&lt;/p&gt;
+
+&lt;p&gt;The actual requirements of the GPL v3 are more complete than the summary given at the choose a license site and include requirements for a reasonably competent engineer (pay attention public service, you may want a few of these people one day) to be able to build the program and deploy a derivative work. This allows users to be free from vendor lock in while still allowing an ecosystem of vendors to develop and support the software&lt;/p&gt;
+
+&lt;p&gt;Moving on to the software documentation, the &lt;code class=&quot;highlighter-rouge&quot;&gt;erd.pdf&lt;/code&gt; file contains the entity relation diagram for the database and seems to be missing from recent releases, however it can be easily refreshed by running the ruby &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec erd&lt;/code&gt; program. You can see that the contracts are the centre of the action in this database&lt;/p&gt;
+
+&lt;p&gt;The rest of the code has been written and arranged according to the Rails conventions for the most part and is reasonably self-documented internally. We have attempted to make the code as literate and self documenting as we could and should be reasonably easy for a moderately experienced Rails developer to grock&lt;/p&gt;
+
+&lt;h3 id=&quot;configuration&quot;&gt;Configuration&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/102_cfg.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets now have a closer look at some of the more important configuration files&lt;/p&gt;
+
+&lt;h4 id=&quot;configenvironmentsproductionrb&quot;&gt;config/environments/production.rb&lt;/h4&gt;
+
+&lt;p&gt;This part of the production configuration (and a related segment in development.rb) define the mail server used for sending automated emails. The configuration sets up a gmail account as the mail server and defers setting the user name and password to the environment in which it is run. On Heroku there is a panel in the settings where you can set the environment variables gmail_username and gmail_password. The code segment &lt;code class=&quot;highlighter-rouge&quot;&gt;ENV['gmail_username']&lt;/code&gt; gets the &lt;code class=&quot;highlighter-rouge&quot;&gt;ENV&lt;/code&gt; variable provided by Rails and indexes into the value &lt;code class=&quot;highlighter-rouge&quot;&gt;gmail_username&lt;/code&gt; to retrive the value set in the Heroku dashboard&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+ :address              =&amp;gt; &quot;smtp.gmail.com&quot;,
+ :port                 =&amp;gt; 587,
+ :user_name            =&amp;gt; ENV['gmail_username'],
+ :password             =&amp;gt; ENV['gmail_password'],
+ :authentication       =&amp;gt; &quot;plain&quot;,
+ :enable_starttls_auto =&amp;gt; true
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;configinitializersschedulerrb&quot;&gt;config/initializers/scheduler.rb&lt;/h4&gt;
+
+&lt;p&gt;This segment kicks off the scheduled scraping of Tenders Vic. Due to Heroku hosting putting the server to sleep when it is unused the scraping is performed during the day when the server is most likely to be active, however it would be preferable to scrape after hours if more reliable scheduling is avalable. This segment also begins with a bit of a kludge as the scheduler will error if a date from the past is given as a paramater, so if it is within five minutes of the target time it will defer the first scrape to the next day&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if Time.now &amp;gt; Time.parse(&quot;11:55:00 am&quot;)
+  start = Time.parse(&quot;11:55:00 am&quot;) + 1.days
+else
+  start = Time.parse(&quot;11:55:00 am&quot;)
+end
+daily_scrape = scheduler.every '1d', :first_at =&amp;gt; start do #  '1h', :first_at =&amp;gt; Time.now() + 5 do
+  scrape_tenders_vic
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Our next bit of code triggers automated mail outs (currently all sent to my email for testing purposes) searching for all contracts that start or end today. Ideally the reporting officer could be contacted on contract start to confirm reporting dates and personnel. Then on the reporting or closing date an automated request for a report could be sent to the relevant officer&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;notify_daily = scheduler.every '1d', :first_at =&amp;gt; start do
+  contracts_starting_today = Contract.where(vt_start_date: Time.now)
+  contracts_starting_today.each do |cont|
+    tweet_contract_start cont
+    email_contract_start cont, &quot;puzzleduck+dtf@gmail.com&quot;
+  end
+  contracts_ending_today = Contract.where(vt_end_date: Time.now)
+  contracts_ending_today.each do |cont|
+    tweet_contract_end cont
+    email_contract_end cont, &quot;puzzleduck+dtf@gmail.com&quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;configdatabaseyml&quot;&gt;config/database.yml&lt;/h4&gt;
+
+&lt;p&gt;In this extract we are looking at the database setup for the development version verses the production environment. You can observe that there are separate databases being used for development and production minimising the chance of accidentally performing development activities on the production database. We also observe the use of environment variables to set the database password, which is once again setup in the Heroku configuration dashboard&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    development:
+      &amp;lt;&amp;lt;: *default
+      host: localhost
+      database: genesis_development
+      username: postgres
+      password: q1w2e3r4t5
+
+    production:
+      &amp;lt;&amp;lt;: *default
+      host: localhost
+      database: genesis_production
+      username: genesis
+      password: &amp;lt;%= ENV['GENESIS_DATABASE_PASSWORD'] %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;configsecretsyml&quot;&gt;config/secrets.yml&lt;/h4&gt;
+
+&lt;p&gt;In our secrets file we see the recurring theme of hard coded development variables and production values being sourced from the environment variables. The secret key is used as a key for security purposes and should never be shared, for this reason the production key is encapsulated into an environment variable to prevent it ever being accidentally committed to the repository&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;development:
+  secret_key_base: 59f1857fda1f2aa79c7afe6233a00d11a5d65f89f69f66185467878775905ce9710de1a8da8f5e8c79d98a13189c897ed946fe40882940fad666b7fa997caa2e
+
+production:
+  secret_key_base: &amp;lt;%= ENV[&quot;SECRET_KEY_BASE&quot;] %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;the-data-base-and-schemarb&quot;&gt;The Data Base and schema.rb&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/102_erd.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At the top of the schema.rb file is the entry &lt;code class=&quot;highlighter-rouge&quot;&gt;version: 20170106024818&lt;/code&gt; which specifies the last migration that was run against this database. If we create a new migration Rails will compare the time stamp in the migrations file name with this time stamp and stops the server from running until the pending migrations are run. This technique generally does a good job of synchronising the database and code so that new code is not run on an old database or vice versa&lt;/p&gt;
+
+&lt;p&gt;I have chosen to display the contracts entry here, but this is a big file with entries for every object in the database. As we mentioned, there is a correlation between this entry and the data stored across the migrations files and this relationship is managed by rails with the &lt;a href=&quot;http://edgeguides.rubyonrails.org/active_record_migrations.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rails db:___&lt;/code&gt; commands&lt;/a&gt; such as &lt;code class=&quot;highlighter-rouge&quot;&gt;rails db:migrate&lt;/code&gt; which will perform any migrations necessary (up or down) to synchronise the code and the database. &lt;code class=&quot;highlighter-rouge&quot;&gt;rails db:rollback&lt;/code&gt; will reverse the last migration, &lt;code class=&quot;highlighter-rouge&quot;&gt;rails db:reset&lt;/code&gt; will reset the database to its default state (be sure to backup any data first!) and there are a host of other commands for managing the database available in Rails but covering them all is a bit out of scope here&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ActiveRecord::Schema.define(version: 20170106024818) do
+...
+create_table &quot;contracts&quot;, force: :cascade do |t|
+  t.string   &quot;vt_contract_number&quot;
+  t.string   &quot;vt_title&quot;
+  t.date     &quot;vt_start_date&quot;
+  t.date     &quot;vt_end_date&quot;
+  t.money    &quot;vt_total_value&quot;,          scale: 2
+  t.datetime &quot;created_at&quot;,                        null: false
+  t.datetime &quot;updated_at&quot;,                        null: false
+  t.integer  &quot;vt_department_id&quot;
+  t.integer  &quot;vt_contract_type_id&quot;
+  t.integer  &quot;vt_value_type_id&quot;
+  t.integer  &quot;status_index&quot;
+  t.integer  &quot;vt_unspc_id&quot;
+  t.string   &quot;vt_contract_description&quot;
+  t.integer  &quot;vt_supplier_id&quot;
+  t.integer  &quot;project_id&quot;
+  t.string   &quot;vt_address&quot;
+  t.integer  &quot;vt_status_id&quot;
+  t.integer  &quot;vt_address_id&quot;
+  t.string   &quot;vt_agency_person&quot;
+  t.string   &quot;vt_agency_phone&quot;
+  t.string   &quot;vt_agency_email&quot;
+  t.string   &quot;vt_supplier_name&quot;
+  t.string   &quot;vt_supplier_abn&quot;
+  t.string   &quot;vt_supplier_acn&quot;
+  t.string   &quot;vt_supplier_address&quot;
+  t.string   &quot;vt_supplier_email&quot;
+  t.boolean  &quot;autopurge&quot;
+  t.string   &quot;ocds_id&quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;the-least-important-bits-of-the-all-important-app-directory&quot;&gt;The (least important bits of the) all important app directory&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/102_controls.jpeg&quot; alt=&quot;&quot; /&gt;
+We’ll only be having a zip through the less interesting parts of the app directory this time with a thorough coverage in the third instalment tentatively titled &lt;strong&gt;“(not even almost) all about MVC frameworks”&lt;/strong&gt; so stay tuned.&lt;/p&gt;
+
+&lt;h4 id=&quot;appassetsjavascriptspagesjs&quot;&gt;app/assets/javascripts/pages.js&lt;/h4&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;pages.js&lt;/code&gt; code is served with static pages (those under the charge of the StaticPages controller) like the dashboard homescreen and the about page. We are looking here at the code that generates the bar chart displaying monthly contract total values. It is similar in principle to the pie chart (in that it is a data driven graph) but is simpler to examine. We start out by defining a size for the chart and calculate some bounds and margins. Then we import the data from Rails and find the maximum value for a contract to determine the maximum domain of our output&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var window_size = 400;
+
+window.onload = function (win) {
+  var bar_margin = {top: 20, right: 30, bottom: 30, left: 40}
+  var bc_width = window_size - bar_margin.left - bar_margin.right;
+  var bc_height = window_size - bar_margin.top - bar_margin.bottom;
+
+  var spending_data = ($('#spending').data('spending'));
+  var barWidth = bc_width / spending_data.length;
+    maximal = 0;
+    spending_data.forEach(function(d) {
+      if ((+d.value) &amp;gt; maximal) {
+        maximal = d.value;
+      }
+  });
+  maximal = maximal * 1.2;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;D3 has rather good inbuilt scaling functions and here we create linear scales using the maximum value we found earlier and the width of the chart&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  var heightscale = d3.scaleLinear()
+      .domain([maximal,0])
+      .range([bc_height, 0]);
+  var widthscale = d3.scaleOrdinal()
+      .range([0, bc_width], .1);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now we start using D3 to draw something to the screen. The first line selects an empty element we placed on the dashboard and the next two define its width and height. Then we attach a title to the chart and style and place it&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  var chart = d3.select(&quot;.barchart&quot;)
+      .attr(&quot;width&quot;, bc_width + bar_margin.left + bar_margin.right)
+      .attr(&quot;height&quot;, bc_height + bar_margin.top + bar_margin.bottom);
+  chart.append(&quot;text&quot;)
+       .attr(&quot;x&quot;, bc_width / 2)
+       .attr(&quot;y&quot;, 20)
+       .attr(&quot;class&quot;,&quot;charttitle&quot;)
+       .style(&quot;font&quot;, &quot;26px sans-serif&quot;)
+       .style(&quot;fill&quot;, &quot;steelblue&quot;)
+       .text(&quot;Construction spend/month&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now we hookup the data to our D3 chart and associate every data element with a “g” (graphic) element in our chart. The &lt;code class=&quot;highlighter-rouge&quot;&gt;.enter()&lt;/code&gt; segment defines what happens when D3 finds a new element in the data set, in our case we are setting its location by performing a translation transform where we move each bar by &lt;code class=&quot;highlighter-rouge&quot;&gt;i * barWidth&lt;/code&gt;, thereby moving each months bar to the next adjacent position. It might seem a bit overkill in this situation (and it is), but D3 is often used with dynamic live data and we might have a chart that adds and removes columns as the data changes&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  var bar = chart.selectAll(&quot;g&quot;)
+       .data(spending_data)
+     .enter().append(&quot;g&quot;)
+       .attr(&quot;transform&quot;, function(d, i) { return &quot;translate(&quot; + i * barWidth + &quot;,0)&quot;; });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now at each of the (ironically invisible) &lt;code class=&quot;highlighter-rouge&quot;&gt;g&lt;/code&gt; objects we append a rectangle object and use the scales we made to set the width and height appropriately&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  bar.append(&quot;rect&quot;)
+       .attr(&quot;y&quot;, function(d) { return bc_height-heightscale(d.value); })
+       .attr(&quot;height&quot;, function(d) { return heightscale(d.value); })
+       .attr(&quot;width&quot;, barWidth - 1);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We then attach the month names to each of the columns and $millions values at the peak&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  bar.append(&quot;text&quot;)
+      .attr(&quot;x&quot;, barWidth / 2)
+      .attr(&quot;y&quot;, bc_height+5)
+      .attr(&quot;dy&quot;, &quot;.75em&quot;)
+      .text(function(d) { return d.name.slice(0,3); });
+  bar.append(&quot;text&quot;)
+     .attr(&quot;x&quot;, barWidth / 2)
+     .attr(&quot;y&quot;, function(d) { return bc_height-heightscale(d.value)-15; })
+     .attr(&quot;dy&quot;, &quot;.75em&quot;)
+     .text(function(d) {
+       if (Math.round(d.value/1000000) &amp;gt; 0) {
+         return &quot;$&quot; + Math.round(d.value/1000000) + &quot;m&quot;;
+       }
+       return &quot;&amp;lt; $1m&quot;;
+     });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And that’s all there is to it ;) seriously, we just went from data to chart &amp;amp; labels :D&lt;/p&gt;
+
+&lt;h4 id=&quot;appassetsjavascriptssegmentiojs&quot;&gt;app/assets/javascripts/segmentio.js&lt;/h4&gt;
+
+&lt;p&gt;This is the full contents of the &lt;code class=&quot;highlighter-rouge&quot;&gt;segment.js&lt;/code&gt; file and while it does seem a bit hefty it is a little piece of gold. With this snippet many different kind of analytics and data warehousing can be enabled through a simple web interface on the segment website. This can funnel data to or from Google Analytics, Tableax, Amazon S3 and so many more we didn’t have time to experiment with them all. Many other code changes that would normally be required (for example to setup Google Analytics) are injected into the javasript that is served to respond to this code, so to enable Analytics no further code changes were necessary (and is supplied segment)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  window.analytics = window.analytics || []; // Create a queue, or get existing
+
+  // A list of the methods in Analytics.js to stub.
+  window.analytics.methods = ['identify', 'group', 'track',
+    'page', 'pageview', 'alias', 'ready', 'on', 'once', 'off',
+    'trackLink', 'trackForm', 'trackClick', 'trackSubmit'];
+
+  // Define a factory to create stubs.
+  window.analytics.factory = function(method){
+    return function(){
+      var args = Array.prototype.slice.call(arguments);
+      args.unshift(method);
+      window.analytics.push(args);
+      return window.analytics;
+    };
+  };
+
+  // For each of our methods, generate a queueing stub.
+  for (var i = 0; i &amp;lt; window.analytics.methods.length; i++) {
+    var key = window.analytics.methods[i];
+    window.analytics[key] = window.analytics.factory(key);
+  }
+
+  // Define a method to load Analytics.js
+  window.analytics.load = function(key){
+    if (document.getElementById('analytics-js')) return;
+
+    // Create an async script element based on your key.
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.id = 'analytics-js';
+    script.async = true;
+    script.src = ('https:' === document.location.protocol
+      ? 'https://' : 'http://')
+      + 'cdn.segment.io/analytics.js/v1/'
+      + key + '/analytics.min.js';
+
+    // Insert our script next to the first script element.
+    var first = document.getElementsByTagName('script')[0];
+    first.parentNode.insertBefore(script, first);
+  };
+
+  window.analytics.SNIPPET_VERSION = '2.0.9'; // version to track what's in the wild
+  window.analytics.load('ACLMWlvkZzHKrlDBM4i3UBGaJf8FesSF'); // Load Analytics.js with our key
+  window.analytics.page(); // Make the first page call to load the integrations
+
+// accommodate Turbolinks and track page views
+$(document).on('ready page:change', function() {
+  analytics.page();
+})
+
+// track page views and form submissions TODO: update with our forms
+$(document).on('ready page:change', function() {
+  console.log('page loaded');
+  analytics.page();
+  analytics.trackForm($('#edit_contract'), 'Edited a contract'); // ID attribute of a form and
+  analytics.trackForm($('#new_contact'), 'Generated a contract'); // a name given to the event.
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;appassetsstylesheetsapplicationscss&quot;&gt;app/assets/stylesheets/application.scss&lt;/h4&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;application.scss&lt;/code&gt; file defines styles that are shared across the entire application. Just like the &lt;code class=&quot;highlighter-rouge&quot;&gt;pages.js&lt;/code&gt; file there are also scss files for each controller, but customising them too much can lead to an inconsistent user experience so most significant changes are made in the site wide &lt;code class=&quot;highlighter-rouge&quot;&gt;application.scss&lt;/code&gt;. First up we define some neat coloring and transparency for the site using fancy scss functions. Then we define a color scheme that is used throughout the styling for consistency and I have included a couple of examples below&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$orange: rgb(250,70,00);
+$alpha75: .70;
+$alpha50: .5;
+$alpha25: .25;
+$orangeAlpha75: rgba($orange, $alpha75);
+$orangeAlpha50: rgba($orange, $alpha50);
+$orangeAlpha25: rgba($orange, $alpha25);
+
+$main-text-color: #222200;
+$logo-color: #222200;
+$header-background: $orangeAlpha75;
+$main-background-color: #DFDAD3;
+$input-color: $orangeAlpha75;
+$input-active-color: $orangeAlpha50;
+$input-alt-color: #222200;
+$input-active-alt-color: #000000;
+
+...
+
+.container {
+  color: $main-text-color;
+  width: 99%;
+}
+
+.navbar {
+  background-color: $header-background;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;appassetsmailersapplicationmailerrb&quot;&gt;app/assets/mailers/application_mailer.rb&lt;/h4&gt;
+
+&lt;p&gt;This little snippet composes and sends a simple proof of concept email reminder and is triggered by the scheduled events we had a look at earlier. This simple example just sends a static string to a single email address, but could easily be customized to email the reporting officer a link to the reporting form that needs to be completed&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class ApplicationMailer &amp;lt; ActionMailer::Base
+  default from: 'benjamin@codeforaustralia.org'
+
+  def announce_email(contract, email)
+    puts &quot;mailer CON:#{contract}&quot;
+    @contract = contract
+    mail(to: email, subject: &quot;Sample email&quot;, body: &quot;not much yet&quot;)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;robotstxt-and-meta-data-the-good-kind&quot;&gt;robots.txt and meta data (the good kind)&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/102_robot.jpeg&quot; alt=&quot;&quot; /&gt;
+We have not explored the use of the robots.txt file in our project as people and robots scraping our site was not an issue that came up. However I feel it is pertinent to mention the file and its function in web culture and communication norms in discouraging errant web crawler activities&lt;/p&gt;
+
+&lt;p&gt;Meta data is something that we have also not had an opportunity to explore but would be great for improving government interface design, the metadata information is used in modern platforms like Slack and Twitter to display fancy previews of the webpage that can be embedded or shared with other users. For example the departments logos could be used as the preview image, the contract title as the header and a body made up of the most vital details such as start, end and value&lt;/p&gt;
+
+&lt;h3 id=&quot;gemfile-and-bundle&quot;&gt;Gemfile and bundle&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/102_rubies.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We have used many libraries during the development process and these are specified in the file named “Gemfile”. This file is most often processed by the &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle&lt;/code&gt; command which manages the Ruby packages (or gems) installed on the system. We examine just a few snippets of the file below&lt;/p&gt;
+
+&lt;p&gt;We specify the versions of Ruby and Rails that our project uses so that the &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle&lt;/code&gt; program can take care of managing which versions to run&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ruby '2.3.1'
+gem 'rails', '~&amp;gt; 5.0.0', '&amp;gt;= 5.0.0.1'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here we specify that we are using the PostgreSQL database and the Puma web server which are minor upgrades to the default SQLite and WebBrick infrastructure used in Rails by default&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'pg', '~&amp;gt; 0.18'
+gem 'puma', '~&amp;gt; 3.0'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The capybara and poltergeist libraries are used by our scraper to power a phantomjs browser for Tenders Vic and the rufus-scheduler library is used to automate the daily scraping routine&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'capybara', '&amp;gt;= 2.1.0'
+gem 'poltergeist', '&amp;gt;= 1.9.0'
+gem 'phantomjs', :require =&amp;gt; 'phantomjs/poltergeist'
+gem 'rufus-scheduler'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The last segment here demonstrates dependency groups in the Gemfile. These requirements are only used in specific configurations or environments. This example is only used during test commands so our production environment won’t have these requirements installed. Guard and Minitest give us an improved and flashy interface when we run the tests. Scrutinizer and Capybara Screenshot are currently underutilized but provide for enhanced testing capabilities such as logging screen shots during tests for visual diffs and monitoring general code quality&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;group :test do
+  gem 'minitest-reporters',       '&amp;gt;= 1.1.9'
+  gem 'guard',                    '&amp;gt;= 2.13.0'
+  gem 'guard-minitest',           '&amp;gt;= 2.4.4'
+  gem 'capybara-screenshot'
+  gem 'scrutinizer-ocular'
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;build-configuration-files-cicd&quot;&gt;Build configuration files (CI/CD)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/102_timing.jpg&quot; alt=&quot;&quot; /&gt;
+(, .scrutinizer.yml, .travis.yml)
+We have experimented with many continuious integration and analytic tools during the fellowship and I would highly recommend the segment.io and semaphore platforms for future projects. I have already covered segment, and semephore is the developers equivilent… with a simple setup and configuration you get automated builds, testing and deployment on every &lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt; on a public repository (a massive time saver)&lt;/p&gt;
+
+&lt;h4 id=&quot;codeclimateyml&quot;&gt;.codeclimate.yml&lt;/h4&gt;
+
+&lt;p&gt;The Code Climate service monitors you codebase and reports on code quality metrics, of course all metrics must be taken with a grain of salt but hopefully you’ll see the value in monitoring relative values over the lifetime of a project. For example monitoring the number of “fixme” and “todo” strings in a codebase can give you a sense of the ammount of work being delayed or put off. There may be good reasons or stylistic differences between developers that make any individual value unreliable, but by combining and aggregating general trends we can see when &lt;strong&gt;too much&lt;/strong&gt; work is being deferred or back loaded.&lt;/p&gt;
+
+&lt;p&gt;The ratings-path segment specified which code should be analysed for quality (excluding auto-generated files for example) and the exclude segment prevents external dependencies and tests from being included in the analysis at all&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;engines:
+  rubocop:
+    enabled: true
+  bundler-audit:
+      enabled: true
+  fixme:
+      enabled: true
+  markdownlint:
+      enabled: true
+  eslint:
+      enabled: true
+  csslint:
+      enabled: true
+  duplication:
+      enabled: true
+    config:
+        languages:
+      - ruby
+      - javascript
+ratings:
+  paths:
+  - app/**
+  - lib/**
+  - &quot;**.rb&quot;
+  - &quot;**.go&quot;
+exclude_paths:
+- spec/**/*
+- &quot;**/vendor/**/*&quot;
+- public/assets/**
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;git-and-gitignore&quot;&gt;.git and .gitignore&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/102_cfg2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The .gitignore file is used to flag files as not appropriate for version control. In the good-old-days this is where you would exclude any files that contained sensitive information, but as you have already seen this has been replaced in modern code with environment variables that can’t be accidentally leaked. We have excluded a few sensitive data files such as performance report raw data and other restricted information (perhaps a local directory referenced by an environment variable might be a better precaution). Then a few of the more regular development artefacts such as the database itself, log files and cross reference indexes are also excluded from the repository here&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# private file of public data
+TendersVicDataSingleLine.csv
+db/backup/CprPerformanceReport.csv
+db/backup/CsrPerformanceReport.csv
+db/backup/Contract.csv
+db/data/performance.csv
+
+# ignore cscope/tags files
+*.db
+*.files
+*.out
+tags
+
+*.gem
+*.rbc
+/.config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><summary type="html">31/01/2017</summary></entry><entry><title type="html">What If… The DTF fellowship was with Tenders Vic?</title><link href="http://localhost:4000/DTF-Blog/Ben-WhatIf-DTF-TendersVIC/" rel="alternate" type="text/html" title="What If... The DTF fellowship was with Tenders Vic?" /><published>2017-01-30T00:00:00+11:00</published><updated>2017-01-30T00:00:00+11:00</updated><id>http://localhost:4000/DTF-Blog/Ben-WhatIf-DTF-TendersVIC</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-WhatIf-DTF-TendersVIC/">&lt;p&gt;&lt;em&gt;30/01/2017&lt;/em&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;what-if-the-dtf-fellowship-was-with-tenders-vic&quot;&gt;What if… the DTF fellowship was with Tenders Vic?&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/spider-hi.jpeg&quot; alt=&quot;&quot; /&gt;
@@ -26,7 +532,7 @@ With the Tenders Vic data now on Data.Vic we were then able to turn our attentio
 &lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/spider_maps.jpeg&quot; alt=&quot;&quot; /&gt;
 After creating the PRU tool for transferring tenders to contracts the Code for Australia fellowship was starting to wrap up and we only had a few weeks to go could we use the newly available address data to create a map of government spending across Victoria. Unfortunately we made the mistake of rushing and ended up committing the cardinal sin of software development by breaking the build… several times, often before demonstrations with important stakeholders resulting in sketchy feedback. While a more cautious and incremental approach might have yielded some fruit by the end of the fellowship our rushed attempt had to be abandoned and we had to roll back to a prior stable version loosing quite a bit of work and having nothing new to demonstrate in our final sprint showcases, dampening enthusiasm for the program as a whole&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/spider_crystal.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary type="html">30/01/2017</summary></entry><entry><title type="html">Project Structure 101</title><link href="http://localhost:4000/DTF-Blog/ProjectStructure101/" rel="alternate" type="text/html" title="Project Structure 101" /><published>2017-01-25T00:00:00+11:00</published><updated>2017-01-25T00:00:00+11:00</updated><id>http://localhost:4000/DTF-Blog/ProjectStructure101</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/ProjectStructure101/">&lt;p&gt;&lt;em&gt;25/01/2017&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/DTF-Blog/images/spider_crystal.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><summary type="html">30/01/2017</summary></entry><entry><title type="html">Project Structure 101</title><link href="http://localhost:4000/DTF-Blog/Ben-ProjectStructure101/" rel="alternate" type="text/html" title="Project Structure 101" /><published>2017-01-25T00:00:00+11:00</published><updated>2017-01-25T00:00:00+11:00</updated><id>http://localhost:4000/DTF-Blog/Ben-ProjectStructure101</id><content type="html" xml:base="http://localhost:4000/DTF-Blog/Ben-ProjectStructure101/">&lt;p&gt;&lt;em&gt;25/01/2017&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;In this blog we will take you through a whirlwind tour of the application we’ve built during the fellowship, explain some of the conventions we’ve followed and where we’ve written our own playbook. We’ll begin by having a look at the top level directory structure in our project and mention the most important configurations and files&lt;/p&gt;
 

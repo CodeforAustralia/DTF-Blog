@@ -58,3 +58,8 @@ As the contract view has a few unique properties let's start off looking at the 
 #### multiple extension processing pipeline
 
 #### erb/haml/scss/sass
+
+
+### Setup
+
+### Rake Tasks

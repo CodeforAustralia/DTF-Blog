@@ -64,20 +64,32 @@ html {
 }
 
 code {
-  background: #FFFF66;
+  background-color: #FFFF66;
+  color: #000;
   border: 1px solid #000;
   padding-left: 1px;
   padding-right: 1px;
+  display: inline-block;
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
 
 pre {
-  background: #FFFF66;
+  background-color: #F00;
+  background: #F00;
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+blockquote {
+  background-color: #F00;
 }
 
 body {
   background: #fff;
   font: 18px/1.4 Helvetica, Arial, sans-serif;
   color: #222;
+  width: 100%;
 }
 
 .container {

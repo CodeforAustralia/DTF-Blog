@@ -18,20 +18,32 @@ html {
 }
 
 code {
-  background: #FFFF66;
+  background-color: #FFFF66;
+  color: $black;
   border: 1px solid $black;
   padding-left: 1px;
   padding-right: 1px;
+  display: inline-block;
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
 
 pre {
-  background: #FFFF66;
+  background-color: #F00;
+  background: #F00;
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+blockquote {
+    background-color: #F00;
 }
 
 body {
 	background: $white;
   font: 18px/1.4 $helvetica;
   color: $darkerGray; // darkGray;
+  width: 100%;
 }
 
 .container {
